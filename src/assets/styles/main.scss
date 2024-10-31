@@ -1,0 +1,108 @@
+@use './variables.scss' as *;
+
+@font-face {
+  font-family: 'OpenSans-Regular';
+  src: url('../fonts/OpenSans-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'OpenSans-Bold';
+  src: url('../fonts/OpenSans-Bold.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../fonts/Roboto-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'OpenSans-Regular';
+}
+
+html {
+  font-size: calc(1vw / 20.48);
+
+  @media screen and (orientation: portrait) {
+    font-size: calc(1vw / 7.68);
+  }
+}
+
+label,
+a,
+button,
+div {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-tap-highlight-color: transparent;
+}
+
+input,
+select {
+  outline: none;
+  border: none;
+}
+
+input[type='text'],
+.select {
+  padding: 15rem 19rem;
+  border-radius: 3rem;
+  box-shadow: 0 1rem 1.5rem 1.5rem rgba(0, 0, 0, 0.086);
+  font-size: 20rem;
+}
+
+img {
+  pointer-events: none;
+}
+
+.btn {
+  font-family: 'Roboto';
+  font-size: 24rem;
+  padding: 11rem 75rem;
+  border: none;
+  border-radius: 10rem;
+  height: 52rem;
+  color: white;
+  cursor: pointer;
+}
+.success-btn {
+  @extend .btn;
+  background-color: $success-color;
+  &:hover {
+    background-color: color.adjust($success-color, $lightness: -10%);
+  }
+  &:active {
+    background-color: color.adjust($success-color, $lightness: -20%);
+  }
+  &:disabled {
+    cursor: unset;
+    background-color: color.adjust($success-color, $lightness: 25%);
+  }
+}
+.cancel-btn {
+  @extend .btn;
+  background-color: $cancel-color;
+  &:hover {
+    background-color: color.adjust($cancel-color, $lightness: -10%);
+  }
+  &:active {
+    background-color: color.adjust($cancel-color, $lightness: -20%);
+  }
+}
+.delete-btn {
+  @extend .btn;
+  background-color: $secondary-color;
+  &:hover {
+    background-color: color.adjust($secondary-color, $lightness: -10%);
+  }
+  &:active {
+    background-color: color.adjust($secondary-color, $lightness: -20%);
+  }
+}
